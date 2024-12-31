@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Navbar.css";// Optional CSS for styling
+import '../styles/form.css';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
