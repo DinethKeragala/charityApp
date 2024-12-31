@@ -1,12 +1,12 @@
-import React from "react";
-import Homepage from "./pages/HomePage"; // Adjust the path based on your structure
+import React from 'react';
+import './App.css';
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <Homepage />
+    <div className="App">
+    <h1>YO</h1>
     </div>
   );
-};
+}
 
 export default App;
