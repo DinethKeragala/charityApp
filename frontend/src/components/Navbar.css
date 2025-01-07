@@ -15,6 +15,7 @@
   align-items: center;
   height: 80px;
   max-width: 1500px;
+  padding: 0 20px;
 }
 .navbar-logo {
   color: #fff;
@@ -39,9 +40,12 @@
   width: 60vw;
   justify-content: end;
   margin-right: 2rem;
+  align-items: center;
 }
 .nav-item {
-  height: 0px;
+  display: flex;
+  align-items: center; /* Vertically center */
+  
 }
 .nav-links {
   color: #fff;
