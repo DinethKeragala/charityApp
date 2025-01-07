@@ -16,30 +16,43 @@
   font-size: 3rem;
 }
 .articles {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  color: white; /* Ensure the text color contrasts with the background */
+  background-color: black; /* Set a visible background */
+  font-size: 3rem;
+  text-align: center;
 }
 .charities {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  color: white; /* Ensure the text color contrasts with the background */
+  background-color: black; /* Set a visible background */
+  font-size: 3rem;
+  text-align: center;
 }
-.products {
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  color: white; /* Ensure the text color contrasts with the background */
+  background-color: black; /* Set a visible background */
+  font-size: 3rem;
+  text-align: center;
 }
 .sign-up {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  color: white; /* Ensure the text color contrasts with the background */
+  background-color: black; /* Set a visible background */
+  font-size: 3rem;
+  text-align: center;
 }
+
