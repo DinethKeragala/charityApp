@@ -49,10 +49,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #bc6666 ; /* Set a visible background */
+  height: 90vh;
+  color: white; /* Ensure the text color contrasts with the background */
+  background-color: black; /* Set a visible background */
   font-size: 3rem;
   text-align: center;
 }
-
 
