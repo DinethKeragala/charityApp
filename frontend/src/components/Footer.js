@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button } from './Button';
-import './Footer.css';
+import React from 'react'
+import { Button } from './Button'
+import './Footer.css'
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaInstagram, FaYoutube, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
@@ -9,9 +9,9 @@ function Footer() {
     <div className='footer-container'>
         <section className='footer-subscription'>
             <p className='footer-subscription-heading'>
-                Join the newsletter to receive news about any upcoming events
+                Join the newsletter to recieve news about any upcoming events
             </p>
-            <p className='footer-subscription-text'>
+            <p className='footer-subscription-test'>
                 You can unsubscribe at any time.
             </p>
             <div className='input-areas'>
@@ -116,4 +116,4 @@ function Footer() {
   )
 }
 
-export default Footer;
+export default Footer
