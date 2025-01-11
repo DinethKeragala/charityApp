@@ -32,15 +32,41 @@
     font-size: 20px;
 }
 
-.footer-input{
-    padding: 8px 20px;
+.footer-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Space between input and button */
+}
+
+.footer-input {
+    padding: 10px 20px;  /* Adjusted padding to match button size */
     border-radius: 2px;
-    margin-right: 10px;
-    outline: none;
-    border: none;
-    font-size: 18px;
-    margin-bottom: 16px;
     border: 1px solid #fff;
+    font-size: 18px;
+    outline: none;
+    height: 48px; /* Explicit height for better alignment */
+}
+
+.footer-button {
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 18px;
+    height: 48px; /* Same height as input field */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.footer-button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.3s ease-out;
 }
 
 .footer-links{

@@ -9,13 +9,14 @@ function Footer() {
     <div className='footer-container'>
         <section className='footer-subscription'>
             <p className='footer-subscription-heading'>
-                Join the newsletter to recieve news about any upcoming events
+                Join the newsletter to receive news about any upcoming events
             </p>
-            <p className='footer-subscription-test'>
+            <p className='footer-subscription-text'>
                 You can unsubscribe at any time.
             </p>
+            {/* Button moved next to input */}
             <div className='input-areas'>
-                <form>
+                <form className='footer-form'>
                     <input 
                     type='email' 
                     name='email'
