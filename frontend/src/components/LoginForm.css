@@ -1,4 +1,16 @@
-.LoginForm{
+.LoginForm {
+    background: url('./login.jpg') no-repeat;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.RegisterForm {
     background: url('./login.jpg') no-repeat;
     margin: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -98,7 +110,19 @@
     margin: 20px 0 15px;
 }
 
+.wrapper .login-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
 .register-link p a{
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link p a{
     color: #333;
     text-decoration: none;
     font-weight: 600;
@@ -107,3 +131,8 @@
 .register-link p a:hover{
     text-decoration: underline;
 }
+
+.login-link p a:hover{
+    text-decoration: underline;
+}
+

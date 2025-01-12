@@ -6,13 +6,14 @@ import Home from './pages/Home';
 import Articles from './pages/Articles';
 import Charities from './pages/Charities';
 import Profile from './pages/Profile';
-import SignUp from './pages/SignUp';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function Layout() {
   const location = useLocation();
-  
-  // Exclude Navbar only on the SignUp page
-  const showNavbar = location.pathname !== "/sign-up";
+
+  // ✅ Hide Navbar only on login and register pages
+  const showNavbar = !["/login", "/register"].includes(location.pathname);
 
   return (
     <>
@@ -22,8 +23,9 @@ function Layout() {
         <Route path='/home' element={<Home />} />
         <Route path='/articles' element={<Articles />} />
         <Route path='/charities' element={<Charities />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path='/sign-up' element={<SignUp />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
       </Routes>
     </>
   );

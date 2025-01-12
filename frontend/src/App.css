@@ -8,7 +8,7 @@
 .articles,
 .charities,
 .profile,
-.sign-up {
+.login {
   display: flex;
   height: 90vh;
   align-items: center;
@@ -45,14 +45,15 @@
   font-size: 3rem;
   text-align: center;
 }
-.sign-up {
+.login {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  min-height: 90vh;
   color: white; /* Ensure the text color contrasts with the background */
   background-color: black; /* Set a visible background */
   font-size: 3rem;
   text-align: center;
 }
+
 

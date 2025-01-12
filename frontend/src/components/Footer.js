@@ -31,35 +31,35 @@ function Footer() {
             <div className='footer-link-wrapper'>
                 <div className='footer-link-items'>
                     <h2>Donors</h2>
-                    <Link to='/sign-up'>Ways to give</Link>
+                    <Link to='/'>Ways to give</Link>
                     <Link to='/'>Philanthropic Gifts</Link>
                     <Link to='/'>Donate in honor</Link>
                     <Link to='/'>Start a Fundraiser</Link>
                 </div>
                 <div className='footer-link-items'>
                     <h2>Nonprofits</h2>
-                    <Link to='/sign-up'>Start an application</Link>
+                    <Link to='/'>Start an application</Link>
                     <Link to='/'>Why join?</Link>
                     <Link to='/'>Handbook</Link>
                     <Link to='/'>Pricing and fees</Link>
                 </div>
                 <div className='footer-link-items'>
                     <h2>Companies</h2>
-                    <Link to='/sign-up'>Our services</Link>
+                    <Link to='/'>Our services</Link>
                     <Link to='/'>Our partners</Link>
                     <Link to='/'>Corporate gift cards</Link>
                     <Link to='/'>HealTheWorld atlas</Link>
                 </div>
                 <div className='footer-link-items'>
                     <h2>About Us</h2>
-                    <Link to='/sign-up'>Our team</Link>
+                    <Link to='/'>Our team</Link>
                     <Link to='/'>Jobs</Link>
                     <Link to='/'>FAQs</Link>
                     <Link to='/'>Contact us</Link>
                 </div>
                 <div className='footer-link-items'>
                     <h2>Learn Library</h2>
-                    <Link to='/sign-up'>Non profit resources</Link>
+                    <Link to='/'>Non profit resources</Link>
                     <Link to='/'>Corporate giving resources</Link>
                     <Link to='/'>Donor resources</Link>
                     <Link to='/'>Success stories</Link>
