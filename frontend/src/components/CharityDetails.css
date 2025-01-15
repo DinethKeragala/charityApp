@@ -1,0 +1,47 @@
+.charity-details {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.charity-details h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.charity-details p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.leaderboard {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+.leaderboard th, .leaderboard td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.leaderboard th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.donate-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.donate-button:hover {
+    background-color: #0056b3;
+}

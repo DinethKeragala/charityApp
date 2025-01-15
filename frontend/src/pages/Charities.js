@@ -1,9 +1,12 @@
 import React from 'react'
 import '../App.css'
+import CharitySelection from '../components/CharitySelection'
 
 function Charities() {
   return (
-    <h1 className='charities'>CHARITIES</h1>
+    <>
+      <CharitySelection />
+    </>
   )
 }
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import './LoginForm.css';
 import { FaUser, FaLock } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
@@ -12,20 +11,31 @@ function LoginForm() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        try {
-            const response = await axios.post('http://localhost:5000/login', formData);
-            alert(response.data.message);
+    
+        fetch('http://localhost:5000/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: formData.username, password: formData.password }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.message === 'Login successful!') {
+                    localStorage.setItem('user_id', data.user_id); // Save `user_id` to localStorage
+                    alert('Login successful!');
+                    navigate('/charity-selection');
+                } else {
+                    alert(data.error);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            });
             
-            // ✅ Redirect to Home Page if login is successful
-            if (response.status === 200) {
-                navigate('/home');
-            }
-        } catch (error) {
-            alert('Login failed. Please check your credentials.');
-        }
     };
+    
 
     return (
         <div className='LoginForm'>

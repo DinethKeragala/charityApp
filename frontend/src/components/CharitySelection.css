@@ -1,0 +1,106 @@
+/* CharitySelection.css */
+.charity-selection {
+    text-align: center;
+    padding: 50px;
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+}
+
+.charity-selection h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.charity-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cards__item {
+    list-style: none;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    max-width: 300px;
+}
+
+.cards__item:hover {
+    transform: translateY(-10px);
+}
+
+.cards__item__link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.cards__item__pic-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+}
+
+.cards__item__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cards__item__info {
+    padding: 20px;
+    background: white;
+    text-align: left;
+}
+
+.cards__item__text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Donation Form Section */
+.donation-form {
+    margin-top: 40px;
+    padding: 20px;
+    border: 2px solid #007BFF;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.donation-form h2 {
+    margin-bottom: 20px;
+    color: #007BFF;
+}
+
+.donation-form input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.donation-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.donation-form button:hover {
+    background-color: #218838;
+}
