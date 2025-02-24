@@ -31,21 +31,25 @@ app.get('/', (req, res) => {
 
 // ✅ Register Route
 app.post('/register', (req, res) => {
-    const { username, email, password } = req.body;
-    if (!username || !email || !password) {
-        return res.status(400).json({ error: 'All fields are required' });
-    }
+    const { fullName, username, email, password} = req.body;
 
-    const sql = `INSERT INTO users (username, email, password) VALUES (?, ?, ?)`;
-    db.query(sql, [username, email, password], (err, result) => {
-        if (err) {
-            console.error('Database error:', err);
-            return res.status(500).json({ error: 'Database error. Please try again.' });
+    const query = `
+        INSERT INTO users (full_name, username, email, password) 
+        VALUES (?, ?, ?, ?)
+    `;
+
+    db.query(
+        query,
+        [fullName, username, email, password],
+        (err, result) => {
+            if (err) {
+                console.error('Error inserting data:', err.message);
+                return res.status(500).json({ message: 'Registration failed.' });
+            }
+            res.status(200).json({ message: 'Registration successful.' });
         }
-        res.status(201).json({ message: 'User registered successfully!' });
-    });
+    );
 });
-
 // ✅ Login Route
 app.post('/login', (req, res) => {
     const { username, password } = req.body;

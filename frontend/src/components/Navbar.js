@@ -12,33 +12,30 @@ function Navbar() {
   const closeMobileMenu = () => setClick(false);
 
   const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
+    setButton(window.innerWidth > 960);
   };
 
   useEffect(() => {
-    showButton()
-  }, [])
-
-  useEffect(() => {
-    showButton(); 
+    showButton();
     window.addEventListener('resize', showButton);
-    return () => window.removeEventListener('resize', showButton); 
+    return () => window.removeEventListener('resize', showButton);
   }, []);
 
   return (
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
+          {/* Logo */}
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             HealTheWorld
           </Link>
-          <div className='menu-icon' onClick={handleClick}>
+
+          {/* Menu Icon for Mobile */}
+          <div className='menu-icon' onClick={handleClick} aria-label='Toggle navigation'>
             {click ? <FaTimes /> : <FaBars />}
           </div>
+
+          {/* Navigation Links */}
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link to='/home' className='nav-links' onClick={closeMobileMenu}>
@@ -56,22 +53,28 @@ function Navbar() {
               </Link>
             </li>
             <li className='nav-item'>
+              <Link to='/volunteer' className='nav-links' onClick={closeMobileMenu}>
+                Volunteer
+              </Link>
+            </li>
+            <li className='nav-item'>
               <Link to='/profile' className='nav-links' onClick={closeMobileMenu}>
                 Profile
               </Link>
             </li>
+            {/* Mobile Login Link */}
             <li className='nav-item'>
               <Link to='/login' className='nav-links-mobile' onClick={closeMobileMenu}>
-                Login 
+                Login
               </Link>
             </li>
           </ul>
+
+          {/* Desktop Login Button */}
           {button && (
-            <Button buttonStyle='btn--outline'>
-              <Link to='/login' className='btn-link'>
-                LOGIN
-              </Link>
-            </Button>
+            <Link to='/login'>
+              <Button buttonStyle='btn--outline'>LOGIN</Button>
+            </Link>
           )}
         </div>
       </nav>

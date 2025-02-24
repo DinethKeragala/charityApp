@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
-import { FaUser, FaLock } from 'react-icons/fa';
+import { FaEnvelope, FaLock } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
+import image1 from './login1.jpg';
 
 function LoginForm() {
-    const [formData, setFormData] = useState({ username: '', password: '' });
-    const navigate = useNavigate();  // ✅ Hook for redirection
+    const [formData, setFormData] = useState({ email: '', password: '' });
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -13,18 +14,18 @@ function LoginForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
+
         fetch('http://localhost:5000/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username: formData.username, password: formData.password }),
+            body: JSON.stringify({ email: formData.email, password: formData.password }),
         })
             .then((response) => response.json())
             .then((data) => {
                 if (data.message === 'Login successful!') {
-                    localStorage.setItem('user_id', data.user_id); // Save `user_id` to localStorage
+                    localStorage.setItem('user_id', data.user_id);
                     alert('Login successful!');
-                    navigate('/charity-selection');
+                    navigate('/home');
                 } else {
                     alert(data.error);
                 }
@@ -33,42 +34,49 @@ function LoginForm() {
                 console.error('Error:', error);
                 alert('An error occurred. Please try again.');
             });
-            
     };
-    
 
     return (
-        <div className='LoginForm'>
-            <div className='wrapper'>
-                <form onSubmit={handleSubmit}>
-                    <h1>Login</h1>
-                    <div className='input-box'>
-                        <input 
-                            type='text' 
-                            name='username'
-                            placeholder='Username'
-                            value={formData.username}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <FaUser className='icon'/>
-                    </div>
-                    <div className='input-box'>
-                        <input 
-                            type='password' 
-                            name='password'
-                            placeholder='Password'
-                            value={formData.password}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <FaLock className='icon'/>
-                    </div>
-                    <button type='submit'>Login</button>
-                    <div className='register-link'>
-                        <p>Don't have an account? <Link to='/register'>Register</Link></p>
-                    </div>
-                </form>
+        <div className="LoginPage">
+            <div className="login-container">
+                <div className="login-form">
+                    <h2>Log In</h2>
+                    <p>Welcome back! Please enter your details</p>
+                    <form onSubmit={handleSubmit}>
+                        <div className="input-box">
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <FaEnvelope className="icon" />
+                        </div>
+                        <div className="input-box">
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                                value={formData.password}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <FaLock className="icon" />
+                        </div>
+                        <div className="forgot-password">
+                            <Link to="/forgot-password">Forgot password?</Link>
+                        </div>
+                        <button type="submit">Log in</button>
+                        <div className="register-link">
+                            <p>Don't have an account? <Link to="/register">Sign up</Link></p>
+                        </div>
+                    </form>
+                </div>
+                <div className="login-image">
+                    <img src={image1} alt="Login Visual" />
+                </div>
             </div>
         </div>
     );

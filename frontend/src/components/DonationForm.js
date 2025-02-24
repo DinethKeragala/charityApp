@@ -12,6 +12,7 @@ function DonationForm() {
     
         // Retrieve `user_id` from localStorage
         const user_id = localStorage.getItem('user_id'); 
+        console.log('User ID:', user_id);
     
         if (!user_id) {
             alert('You need to log in to make a donation.');

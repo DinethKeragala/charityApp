@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import './LoginForm.css';
-import { FaUser, FaLock, FaEnvelope } from 'react-icons/fa';
+import './RegistrationForm.css';
+import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
+import image2 from './login1.jpg'; // Ensure this image is placed in the same directory
 
 function RegisterForm() {
-    const [formData, setFormData] = useState({ username: '', email: '', password: '' });
-    const navigate = useNavigate();  // ✅ Hook for redirection
+    const [formData, setFormData] = useState({
+        fullName: '',
+        username: '',
+        email: '',
+        password: '',
+    });
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,10 +20,14 @@ function RegisterForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/register', formData);
-            alert(response.data.message);
-            
-            // ✅ Redirect to the Home page after success
+            const response = await fetch('http://localhost:5000/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+            alert(data.message);
             navigate('/home');
         } catch (error) {
             alert('Registration failed. Please try again.');
@@ -26,48 +35,65 @@ function RegisterForm() {
     };
 
     return (
-        <div className='RegisterForm'>
-            <div className='wrapper'>
-                <form onSubmit={handleSubmit}>
-                    <h1>Register</h1>
-                    <div className='input-box'>
-                        <input 
-                            type='text' 
-                            name='username'
-                            placeholder='Username'
-                            value={formData.username}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <FaUser className='icon'/>
-                    </div>
-                    <div className='input-box'>
-                        <input 
-                            type='email' 
-                            name='email'
-                            placeholder='Email' 
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <FaEnvelope className='icon'/>
-                    </div>
-                    <div className='input-box'>
-                        <input 
-                            type='password' 
-                            name='password'
-                            placeholder='Password'
-                            value={formData.password}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <FaLock className='icon'/>
-                    </div>
-                    <button type='submit'>Register</button>
-                    <div className='login-link'>
-                        <p>Already have an account? <Link to='/login'>Login</Link></p>
-                    </div>
-                </form>
+        <div className="RegisterPage">
+            <div className="register-container">
+                <div className="register-form">
+                    <h2>Create Account</h2>
+                    <p>Join us today! Please fill in your details</p>
+                    <form onSubmit={handleSubmit}>
+                        <div className="input-box">
+                            <input 
+                                type="text" 
+                                name="fullName" 
+                                placeholder="Full Name"
+                                value={formData.fullName}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <FaUser className="icon" />
+                        </div>
+                        <div className="input-box">
+                            <input 
+                                type="text" 
+                                name="username" 
+                                placeholder="Username"
+                                value={formData.username}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <FaUser className="icon" />
+                        </div>
+                        <div className="input-box">
+                            <input 
+                                type="email" 
+                                name="email" 
+                                placeholder="Email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <FaEnvelope className="icon" />
+                        </div>
+                        <div className="input-box">
+                            <input 
+                                type="password" 
+                                name="password" 
+                                placeholder="Password"
+                                value={formData.password}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <FaLock className="icon" />
+                        </div>
+                        <button type="submit">Sign Up</button>
+                        <div className="login-link">
+                            <p>Already have an account? <Link to="/login">Log in</Link></p>
+                        </div>
+                    </form>
+                </div>
+                <div className="register-image">
+                    <img src={image2} alt="Register Visual" />
+                </div>
             </div>
         </div>
     );

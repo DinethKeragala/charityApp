@@ -50,12 +50,12 @@ function Cards() {
                     />
                     <Carditem 
                     src={orgImage2}
-                    text="Charity Launches New Grant Program to Support Groundbreaking Cancer Research"
+                    text="The Salvation Army"
                     path="/articles"
                     />
                     <Carditem 
                     src={orgImage3}
-                    text="Why Giving Back Matters: The Lifelong Impact of Charity"
+                    text="Cancer Research Institute"
                     path="/articles"
                     />
                 </ul>

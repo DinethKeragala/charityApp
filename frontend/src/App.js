@@ -11,18 +11,19 @@ import Register from './pages/Register';
 import AboutUs from './pages/AboutUs';
 import DonationLeaderboard from './pages/DonationLeaderboard';
 import Donate from './pages/Donate';
+import Volunteer from './pages/Volunteer';
 
 function Layout() {
   const location = useLocation();
 
   // ✅ Hide Navbar only on login and register pages
-  const showNavbar = !["/login", "/register"].includes(location.pathname);
+  const showNavbar = !["/login", "/register", '/'].includes(location.pathname);
 
   return (
     <>
       {showNavbar && <Navbar />}
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Login />} />
         <Route path='/home' element={<Home />} />
         <Route path='/articles' element={<Articles />} />
         <Route path='/charities' element={<Charities />} />
@@ -32,6 +33,7 @@ function Layout() {
         <Route path='/about-us' element={<AboutUs />}/> 
         <Route path="/charities/:id" element={<DonationLeaderboard />} />
         <Route path="/donate/:id" element={<Donate />} />
+        <Route path='/volunteer' element={<Volunteer />} />
 
       </Routes>
     </>
