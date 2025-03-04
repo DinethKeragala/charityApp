@@ -74,7 +74,7 @@ function Navbar() {
           {/* Desktop Login Button */}
           {button && (
             <Link to='/login'>  {/* Link only here */}
-              <Button buttonStyle='btn--outline'>LOGIN</Button>
+              <Button buttonStyle='btn--outline'>LOGOUT</Button>
             </Link>
           )}
         </div>
