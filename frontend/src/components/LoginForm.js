@@ -5,7 +5,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import image1 from './login1.jpg';
 
 function LoginForm() {
-    const [formData, setFormData] = useState({ email: '', password: '' });
+    const [formData, setFormData] = useState({ username: '', password: '' });
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const handleInputChange = (e) => {
@@ -14,25 +15,25 @@ function LoginForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setError('');
 
         fetch('http://localhost:5000/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: formData.email, password: formData.password }),
+            body: JSON.stringify({ username: formData.username, password: formData.password }),
         })
             .then((response) => response.json())
             .then((data) => {
                 if (data.message === 'Login successful!') {
                     localStorage.setItem('user_id', data.user_id);
-                    alert('Login successful!');
                     navigate('/home');
                 } else {
-                    alert(data.error);
+                    setError(data.error || 'Login failed. Please check your credentials.');
                 }
             })
             .catch((error) => {
                 console.error('Error:', error);
-                alert('An error occurred. Please try again.');
+                setError('An error occurred. Please try again.');
             });
     };
 
@@ -42,13 +43,17 @@ function LoginForm() {
                 <div className="login-form">
                     <h2>Log In</h2>
                     <p>Welcome back! Please enter your details</p>
+
+                    {/* ✅ Display error message if present */}
+                    {error && <p className="error-message">{error}</p>}
+
                     <form onSubmit={handleSubmit}>
                         <div className="input-box">
                             <input
-                                type="email"
-                                name="email"
-                                placeholder="Email"
-                                value={formData.email}
+                                type="text"
+                                name="username"
+                                placeholder="Username"
+                                value={formData.username}
                                 onChange={handleInputChange}
                                 required
                             />

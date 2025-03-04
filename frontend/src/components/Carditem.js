@@ -1,15 +1,20 @@
-// Carditem.js
+// src/components/Carditem.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Carditem = (props) => {
+
+const Carditem = ({ src, text, label, path, onClick }) => {
     return (
-        <li className='cards__item'>
-            <div className='cards__item__link' onClick={props.onClick}>
-                <figure className='cards__item__pic-wrap' data-category={props.label}>
-                    <img src={props.src} alt={props.text} className='cards__item__img' />
+        <li className='cards__item' onClick={onClick}>
+            <div className='cards__item__link'>
+                <figure className='cards__item__pic-wrap' data-category={label}>
+                    <img src={src} alt={text} className='cards__item__img' />
                 </figure>
                 <div className='cards__item__info'>
-                    <h5 className='cards__item__text'>{props.text}</h5>
+                    <h5 className='cards__item__text'>{text}</h5>
+                    <Link to={path} className='btn--outline'>
+                        Sign Up Now
+                    </Link>
                 </div>
             </div>
         </li>

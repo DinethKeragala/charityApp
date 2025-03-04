@@ -1,3 +1,4 @@
+// src/components/Navbar.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
@@ -72,7 +73,7 @@ function Navbar() {
 
           {/* Desktop Login Button */}
           {button && (
-            <Link to='/login'>
+            <Link to='/login'>  {/* Link only here */}
               <Button buttonStyle='btn--outline'>LOGIN</Button>
             </Link>
           )}

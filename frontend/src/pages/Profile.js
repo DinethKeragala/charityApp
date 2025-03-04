@@ -1,9 +1,12 @@
 import React from 'react';
 import '../App.css';
+import ProfilePage from '../components/ProfilePage';
 
 function Profile() {
   return (
-    <h1 className="profile">PROFILE</h1>
+    <>
+      <ProfilePage />
+    </>
   )
 }
 

@@ -1,9 +1,14 @@
 import React from 'react'
 import '../App.css'
+import EventList from '../components/EventList'
+import Footer from '../components/Footer'
 
 function Volunteer() {
   return (
-    <h1 className='volunteer'>VOLUNTEER</h1>
+    <>
+      <EventList />
+      <Footer />
+    </>
   )
 }
 

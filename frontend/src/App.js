@@ -12,6 +12,7 @@ import AboutUs from './pages/AboutUs';
 import DonationLeaderboard from './pages/DonationLeaderboard';
 import Donate from './pages/Donate';
 import Volunteer from './pages/Volunteer';
+import VolunteerForm from './components/VolunteerForm';
 
 function Layout() {
   const location = useLocation();
@@ -34,6 +35,7 @@ function Layout() {
         <Route path="/charities/:id" element={<DonationLeaderboard />} />
         <Route path="/donate/:id" element={<Donate />} />
         <Route path='/volunteer' element={<Volunteer />} />
+        <Route path="/volunteer/:eventId" element={<VolunteerForm />} /> 
 
       </Routes>
     </>

@@ -1,3 +1,4 @@
+// src/components/Button.js
 import React from "react";
 import './Button.css';
 import { Link } from "react-router-dom";
@@ -11,8 +12,9 @@ export const Button = ({
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
     const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
-    return (
-        <Link to={linkTo || '/'} className='btn-mobile'> {/* Use linkTo prop */}
+    // Only render Link if linkTo is provided
+    const buttonContent = linkTo ? (
+        <Link to={linkTo} className='btn-mobile'>
             <button 
                 className={`btn ${checkButtonStyle} ${checkButtonSize}`} 
                 onClick={onClick}
@@ -21,5 +23,15 @@ export const Button = ({
                 {children}
             </button>
         </Link>
+    ) : (
+        <button 
+            className={`btn ${checkButtonStyle} ${checkButtonSize}`} 
+            onClick={onClick}
+            type={type}
+        >
+            {children}
+        </button>
     );
+
+    return buttonContent;
 };
