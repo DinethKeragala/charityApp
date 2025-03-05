@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./ProfilePage.css";
+import userPic from "./user.png"; // Import the default profile picture
 
 const Profile = () => {
   const [user, setUser] = useState(null);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState("");
+  const fileInputRef = useRef(null);
 
   // ✅ Use the correct key from localStorage
   const userId = localStorage.getItem("user_id");
@@ -36,8 +38,10 @@ const Profile = () => {
   // Handle file selection
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-    setImage(file);
-    setPreview(URL.createObjectURL(file));
+    if (file) {
+      setImage(file);
+      setPreview(URL.createObjectURL(file));
+    }
   };
 
   // Upload profile photo
@@ -75,23 +79,36 @@ const Profile = () => {
   }
 
   return (
+    
     <div className="profile-container">
+      <div className="profile-photo">
+        <img 
+          src={preview || (user.profile_photo ? `http://localhost:5000${user.profile_photo}` : userPic)} 
+          alt="Profile" 
+          className="profile-img"
+          onClick={() => fileInputRef.current.click()}
+          onError={(e) => e.target.src = userPic} // Fallback to default image if the profile photo fails to load
+        />
+        <input 
+          type="file" 
+          accept="image/*" 
+          onChange={handleFileChange} 
+          ref={fileInputRef}
+          style={{ display: 'none' }}
+        />
+        <button onClick={handleUpload}>Upload Photo</button>
+      </div>
       <div className="profile-info">
         <h1>{user.full_name}</h1>
         <p><strong>Username:</strong> {user.username}</p>
         <p><strong>Email:</strong> {user.email}</p>
+        
       </div>
-
-      <div className="profile-photo">
-        <img 
-          src={preview || `http://localhost:5000${user.profile_photo}`} 
-          alt="Profile" 
-          className="profile-img"
-          onError={(e) => e.target.src = "/default-profile.png"}
-        />
-        <input type="file" accept="image/*" onChange={handleFileChange} />
-        <button onClick={handleUpload}>Upload Photo</button>
-      </div>
+      <div className="profile-stats">
+          <h2>Profile Statistics</h2>
+          <p><strong>Total Donations:</strong> {user.total_donations || 0}</p>
+          <p><strong>Total Events Participated:</strong> {user.total_events_participated || 0}</p>
+        </div>
     </div>
   );
 };

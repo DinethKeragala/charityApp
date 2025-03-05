@@ -33,8 +33,33 @@
   object-fit: cover;
   border: 2px solid #ddd;
   margin-bottom: 10px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
 }
 
+.profile-img:hover {
+  border-color: #007bff; /* Change border color on hover */
+}
 .profile-photo input {
+  margin-bottom: 10px;
+}
+
+.profile-stats {
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 50%;
+}
+
+.profile-stats h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.profile-stats p {
+  font-size: 18px;
   margin-bottom: 10px;
 }
