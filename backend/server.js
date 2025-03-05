@@ -30,30 +30,6 @@ app.get('/', (req, res) => {
 });
 
 // ✅ Register Route
-app.post('/api/admin/login', (req, res) => {
-    const { username, password } = req.body;
-
-    const sql = `SELECT * FROM admin_users WHERE username = ?`;
-    db.query(sql, [username], async (err, results) => {
-        if (err) {
-            console.error('Database error:', err);
-            return res.status(500).json({ error: 'Database error. Please try again.' });
-        }
-
-        if (results.length === 0) {
-            return res.status(401).json({ error: 'Invalid username or password' });
-        }
-
-        const admin = results[0];
-        const isPasswordValid = await bcrypt.compare(password, admin.password_hash);
-
-        if (!isPasswordValid) {
-            return res.status(401).json({ error: 'Invalid username or password' });
-        }
-
-        res.status(200).json({ message: 'Login successful', admin_id: admin.id });
-    });
-});
 
 
 app.post('/register', async (req, res) => {
@@ -70,11 +46,10 @@ app.post('/register', async (req, res) => {
     });
 });
 
-const jwt = require('jsonwebtoken'); // JSON Web Token for authentication
 const bcrypt = require('bcrypt');
 
 app.post('/login', (req, res) => {
-    const { username, password } = req.body;
+    const { username, password } = req.body;  // ✅ Using username instead of email
 
     const sql = `SELECT * FROM users WHERE username = ?`;
     db.query(sql, [username], async (err, results) => {
@@ -84,24 +59,25 @@ app.post('/login', (req, res) => {
         }
 
         if (results.length === 0) {
+            console.log('No user found with username:', username);
             return res.status(401).json({ error: 'Invalid username or password' });
         }
 
         const user = results[0];
-        const isPasswordValid = await bcrypt.compare(password, user.password);
+
+        // Log to verify correct password is being compared
+        console.log('Stored Password:', user.password);
+        console.log('Entered Password:', password);
+
+        const isPasswordValid = await bcrypt.compare(password, user.password);  // ✅ Compare hashed password
 
         if (!isPasswordValid) {
+            console.log('Invalid password for username:', username);
             return res.status(401).json({ error: 'Invalid username or password' });
         }
 
-        // Generate JWT token
-        const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-        res.status(200).json({ 
-            message: 'Login successful!',
-            userId: user.id,  // Send user ID
-            token 
-        });
+        console.log('Login successful for user:', username);
+        res.status(200).json({ message: 'Login successful!', user_id: user.id });
     });
 });
 
@@ -293,51 +269,6 @@ app.post("/api/upload-profile-photo", upload.single("profilePhoto"), (req, res) 
         if (err) return res.status(500).json({ error: "Database update failed." });
 
         res.json({ message: "Profile photo updated successfully!", filePath });
-    });
-});
-
-// Add these new endpoints after the existing routes
-
-// ✅ Fetch total donations for a user
-app.get('/api/user/:id/total-donations', (req, res) => {
-    const { id } = req.params;
-
-    const sql = `
-        SELECT SUM(amount) AS total_donated 
-        FROM donations 
-        WHERE user_id = ?
-    `;
-
-    db.query(sql, [id], (err, results) => {
-        if (err) {
-            console.error('Database error:', err);
-            return res.status(500).json({ error: 'Database error' });
-        }
-
-        // If no donations are found, return 0
-        const totalDonated = results[0].total_donated || 0;
-        res.json({ total_donated: totalDonated });
-    });
-});
-// ✅ Fetch number of events participated by a user
-app.get('/api/user/:id/events-participated', (req, res) => {
-    const { id } = req.params;
-
-    const sql = `
-        SELECT COUNT(*) AS events_participated 
-        FROM events 
-        WHERE user_id = ?
-    `;
-
-    db.query(sql, [id], (err, results) => {
-        if (err) {
-            console.error('Database error:', err);
-            return res.status(500).json({ error: 'Database error' });
-        }
-
-        // If no events are found, return 0
-        const eventsParticipated = results[0].events_participated || 0;
-        res.json({ events_participated: eventsParticipated });
     });
 });
 
