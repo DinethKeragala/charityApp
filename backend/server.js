@@ -30,6 +30,30 @@ app.get('/', (req, res) => {
 });
 
 // ✅ Register Route
+app.post('/api/admin/login', (req, res) => {
+    const { username, password } = req.body;
+
+    const sql = `SELECT * FROM admin_users WHERE username = ?`;
+    db.query(sql, [username], async (err, results) => {
+        if (err) {
+            console.error('Database error:', err);
+            return res.status(500).json({ error: 'Database error. Please try again.' });
+        }
+
+        if (results.length === 0) {
+            return res.status(401).json({ error: 'Invalid username or password' });
+        }
+
+        const admin = results[0];
+        const isPasswordValid = await bcrypt.compare(password, admin.password_hash);
+
+        if (!isPasswordValid) {
+            return res.status(401).json({ error: 'Invalid username or password' });
+        }
+
+        res.status(200).json({ message: 'Login successful', admin_id: admin.id });
+    });
+});
 
 
 app.post('/register', async (req, res) => {
@@ -46,10 +70,11 @@ app.post('/register', async (req, res) => {
     });
 });
 
+const jwt = require('jsonwebtoken'); // JSON Web Token for authentication
 const bcrypt = require('bcrypt');
 
 app.post('/login', (req, res) => {
-    const { username, password } = req.body;  // ✅ Using username instead of email
+    const { username, password } = req.body;
 
     const sql = `SELECT * FROM users WHERE username = ?`;
     db.query(sql, [username], async (err, results) => {
@@ -59,25 +84,24 @@ app.post('/login', (req, res) => {
         }
 
         if (results.length === 0) {
-            console.log('No user found with username:', username);
             return res.status(401).json({ error: 'Invalid username or password' });
         }
 
         const user = results[0];
-
-        // Log to verify correct password is being compared
-        console.log('Stored Password:', user.password);
-        console.log('Entered Password:', password);
-
-        const isPasswordValid = await bcrypt.compare(password, user.password);  // ✅ Compare hashed password
+        const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if (!isPasswordValid) {
-            console.log('Invalid password for username:', username);
             return res.status(401).json({ error: 'Invalid username or password' });
         }
 
-        console.log('Login successful for user:', username);
-        res.status(200).json({ message: 'Login successful!', user_id: user.id });
+        // Generate JWT token
+        const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+        res.status(200).json({ 
+            message: 'Login successful!',
+            userId: user.id,  // Send user ID
+            token 
+        });
     });
 });
 
@@ -272,6 +296,29 @@ app.post("/api/upload-profile-photo", upload.single("profilePhoto"), (req, res) 
     });
 });
 
+app.get('/api/donations/user/:userId', (req, res) => {
+    const { userId } = req.params;
+    const sql = `SELECT * FROM donations WHERE user_id = ?`;
+    db.query(sql, [userId], (err, results) => {
+      if (err) {
+        console.error('Database error:', err);
+        return res.status(500).json({ error: 'Database error' });
+      }
+      res.json(results);
+    });
+  });
+
+  app.get('/api/events/user/:userId', (req, res) => {
+    const { userId } = req.params;
+    const sql = `SELECT * FROM events WHERE id IN (SELECT event_id FROM volunteers WHERE user_id = ?)`;
+    db.query(sql, [userId], (err, results) => {
+      if (err) {
+        console.error('Database error:', err);
+        return res.status(500).json({ error: 'Database error' });
+      }
+      res.json(results);
+    });
+  });
 
 // ✅ Server Listening
 const PORT = process.env.PORT || 5000;

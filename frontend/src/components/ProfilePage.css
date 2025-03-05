@@ -26,6 +26,11 @@
   align-items: center;
 }
 
+
+.profile-photo input {
+  margin-bottom: 10px;
+}
+
 .profile-img {
   width: 150px;
   height: 150px;
@@ -33,8 +38,28 @@
   object-fit: cover;
   border: 2px solid #ddd;
   margin-bottom: 10px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
 }
 
-.profile-photo input {
+.profile-img:hover {
+  border-color: #007bff; /* Change border color on hover */
+}
+
+.profile-statistics {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-statistics h2 {
+  font-size: 24px;
   margin-bottom: 10px;
+}
+
+.profile-statistics p {
+  font-size: 16px;
+  margin: 5px 0;
 }
