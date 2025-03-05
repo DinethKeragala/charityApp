@@ -1,7 +1,7 @@
 .profile-container {
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Center children horizontally */
+  justify-content: space-between;
+  align-items: center;
   padding: 40px;
   width: 80%;
   margin: auto;
@@ -12,23 +12,12 @@
 
 .profile-info {
   font-size: 18px;
-  text-align: center; /* Center text */
-  margin-bottom: 20px; /* Add space below user info */
+  max-width: 50%;
 }
 
 .profile-info h1 {
   font-size: 32px;
   margin-bottom: 10px;
-}
-
-.profile-stats {
-  margin-bottom: 20px; /* Add space below stats */
-  text-align: center; /* Center text */
-  font-size: 18px;
-}
-
-.profile-stats p {
-  margin: 10px 0;
 }
 
 .profile-photo {
@@ -44,14 +33,8 @@
   object-fit: cover;
   border: 2px solid #ddd;
   margin-bottom: 10px;
-  cursor: pointer; /* Indicate that the image is clickable */
-  transition: opacity 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.profile-img:hover {
-  opacity: 0.8; /* Slightly fade the image on hover */
-}
-
-.profile-photo button {
-  margin-top: 10px; /* Add space above the button */
+.profile-photo input {
+  margin-bottom: 10px;
 }
