@@ -1,0 +1,112 @@
+﻿<Window x:Class="CharityApp.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Login"
+        Width="450"
+        Height="550"
+        Background="#F5F5F5"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Grid>
+        <Border Background="White" 
+                CornerRadius="10"
+                Padding="40 10 40 40 "
+                Width="380"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+
+            <StackPanel VerticalAlignment="Center">
+
+                <!-- Title -->
+                <TextBlock Text="Welcome Back!"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="#333"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
+
+                <!-- Email -->
+                <TextBlock Text="Email" Foreground="Black" FontWeight="SemiBold"/>
+                <TextBox x:Name="EmailTextBox"
+                         Height="40"
+                         Margin="0,5,0,5"
+                         Padding="10"
+                         BorderBrush="Gray">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                BorderBrush="Gray" 
+                                                BorderThickness="1" 
+                                                CornerRadius="20" 
+                                                Padding="0">
+                                            <ScrollViewer x:Name="PART_ContentHost"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+                <!-- Password -->
+                <TextBlock Text="Password" Foreground="Black" FontWeight="SemiBold"/>
+                <PasswordBox x:Name="PasswordBox"
+                             Height="40"
+                             Margin="0,5,0,15"
+                             Padding="10"
+                             BorderBrush="Gray"
+                             Background="White">
+                    <PasswordBox.Style>
+                        <Style TargetType="PasswordBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="PasswordBox">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                BorderBrush="Gray" 
+                                                BorderThickness="1" 
+                                                CornerRadius="20" 
+                                                Padding="0">
+                                            <ScrollViewer x:Name="PART_ContentHost"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </PasswordBox.Style>
+                </PasswordBox>
+
+                <!-- Login Button -->
+                <Button Content="LOGIN"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Padding="20"
+                        Height="40"
+                        Margin="0,10,0,0"
+                        Cursor="Hand"
+                        FontSize="15"
+                        Click="LoginButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="Black"
+                                    CornerRadius="20"
+                                    BorderThickness="0"
+                                    Padding="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <TextBlock x:Name="ErrorMessage"
+                       Foreground="Red"
+                       FontSize="11"
+                       HorizontalAlignment="Center"
+                       Visibility="Collapsed"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
