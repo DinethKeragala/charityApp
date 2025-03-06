@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
-import { FaEnvelope, FaLock } from 'react-icons/fa';
+import { FaUser, FaLock } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import image1 from './login1.jpg';
 
@@ -44,7 +44,6 @@ function LoginForm() {
                     <h2>Log In</h2>
                     <p>Welcome back! Please enter your details</p>
 
-                    {/* ✅ Display error message if present */}
                     {error && <p className="error-message">{error}</p>}
 
                     <form onSubmit={handleSubmit}>
@@ -57,7 +56,7 @@ function LoginForm() {
                                 onChange={handleInputChange}
                                 required
                             />
-                            <FaEnvelope className="icon" />
+                            <FaUser className="icon" />
                         </div>
                         <div className="input-box">
                             <input

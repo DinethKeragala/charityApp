@@ -10,7 +10,7 @@
     <Grid>
         <!-- Side Panel -->
         <Border Background="Black" Width="200" HorizontalAlignment="Left">
-            <StackPanel VerticalAlignment="Center" Margin="10,0,10,0" Height="564">
+            <StackPanel VerticalAlignment="Top" Margin="10,10,10,0" Height="564">
                 <!-- HealTheWorld Button -->
                 <Button Content="HealTheWorld"
                         Foreground="White"
@@ -19,8 +19,8 @@
                         BorderThickness="0"
                         FontSize="20"
                         FontWeight="Bold"
-                        Height="40"
-                        Margin="20"
+                        Height="108"
+                        Margin="10"
                         Cursor="Hand"
                         Click="HealTheWorldButton_Click"/>
 
