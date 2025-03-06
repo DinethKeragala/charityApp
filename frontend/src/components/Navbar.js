@@ -1,6 +1,6 @@
 // src/components/Navbar.js
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Button } from './Button';
 import './Navbar.css';
@@ -8,6 +8,7 @@ import './Navbar.css';
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const navigate = useNavigate();
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -22,30 +23,34 @@ function Navbar() {
     return () => window.removeEventListener('resize', showButton);
   }, []);
 
+  const handleLogout = () => {
+    // Clear user data from localStorage
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('username');
+    
+    // If you're using any other auth tokens, clear those too
+    localStorage.removeItem('auth_token');
+    
+    // Redirect to login page
+    navigate('/login');
+  };
+
   return (
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
-          {/* Logo */}
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+          <Link to='/home' className='navbar-logo' onClick={closeMobileMenu}>
             HealTheWorld
           </Link>
 
-          {/* Menu Icon for Mobile */}
           <div className='menu-icon' onClick={handleClick} aria-label='Toggle navigation'>
             {click ? <FaTimes /> : <FaBars />}
           </div>
 
-          {/* Navigation Links */}
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link to='/home' className='nav-links' onClick={closeMobileMenu}>
                 Home
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link to='/articles' className='nav-links' onClick={closeMobileMenu}>
-                Articles
               </Link>
             </li>
             <li className='nav-item'>
@@ -63,19 +68,27 @@ function Navbar() {
                 Profile
               </Link>
             </li>
-            {/* Mobile Login Link */}
+
             <li className='nav-item'>
-              <Link to='/login' className='nav-links-mobile' onClick={closeMobileMenu}>
-                Login
-              </Link>
+              <div className='nav-links-mobile' onClick={() => {
+                handleLogout();
+                closeMobileMenu();
+              }}>
+                LOGOUT
+              </div>
             </li>
           </ul>
 
-          {/* Desktop Login Button */}
           {button && (
-            <Link to='/login'>  {/* Link only here */}
-              <Button buttonStyle='btn--outline'>LOGOUT</Button>
-            </Link>
+            <div className="logout-button-container">
+              <Button 
+                buttonStyle='btn--outline' 
+                onClick={handleLogout}
+                className="logout-button"
+              >
+                LOGOUT
+              </Button>
+            </div>
           )}
         </div>
       </nav>

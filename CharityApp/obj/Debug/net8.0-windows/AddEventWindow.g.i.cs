@@ -76,7 +76,7 @@ namespace CharityApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CharityApp;component/addeventwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CharityApp;V1.0.0.0;component/addeventwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AddEventWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -272,6 +272,14 @@ app.post("/api/upload-profile-photo", upload.single("profilePhoto"), (req, res) 
     });
 });
 
+// Add to your server.js
+app.post('/api/logout', (req, res) => {
+    // If you're using session-based auth, you might want to invalidate the session
+    // req.session.destroy();
+    
+    res.status(200).json({ message: 'Logged out successfully' });
+});
+
 
 // ✅ Server Listening
 const PORT = process.env.PORT || 5000;

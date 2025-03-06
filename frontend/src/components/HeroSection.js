@@ -17,7 +17,7 @@ function HeroSection() {
         className="btn1" 
         buttonStyle="btn--outline" 
         buttonSize="btn--large" 
-        linkTo="/donate"
+        linkTo="/charities"
         >
           Donate Now
         </Button>

@@ -12,7 +12,7 @@ namespace CharityApp
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             // Validate user credentials (you can add actual authentication logic here)
-            if (EmailTextBox.Text == "admin" && PasswordBox.Password == "admin123")
+            if (UsernameTextBox.Text == "admin" && PasswordBox.Password == "admin123")
             {
                 // Navigate to Admin Dashboard
                 MainWindow adminDashboard = new MainWindow();

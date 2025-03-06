@@ -45,3 +45,47 @@
 .donate-button:hover {
     background-color: #0056b3;
 }
+
+/* Top donator styles */
+.top-donator-banner {
+    background: linear-gradient(45deg, #FFD700, #FFA500, #FF6347, #FF4500);
+    background-size: 400% 400%;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: gradient-shift 3s ease infinite, pulse 2s infinite;
+    display: block; /* Ensure it's visible */
+}
+
+.user-row {
+    background-color: rgba(235, 245, 255, 0.7) !important;
+}
+
+.top-donator {
+    background: linear-gradient(90deg, rgba(255,215,0,0.3), rgba(255,215,0,0.5), rgba(255,215,0,0.3)) !important;
+    background-size: 200% 100% !important;
+    font-weight: bold !important;
+    animation: shine 2s linear infinite !important;
+    color: #000 !important;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shine {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+}

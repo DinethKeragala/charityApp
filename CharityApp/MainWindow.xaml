@@ -20,14 +20,14 @@
                         FontSize="20"
                         FontWeight="Bold"
                         Height="40"
-                        Margin="10"
+                        Margin="20"
                         Cursor="Hand"
                         Click="HealTheWorldButton_Click"/>
 
                 <!-- Users Button -->
                 <Button Content="Users"
-                        Foreground="White"
-                        Background="Transparent"
+                        Foreground="Black"
+                        Background="White"
                         BorderBrush="White"
                         FontSize="16"
                         Height="40"
@@ -37,8 +37,8 @@
 
                 <!-- Charities Button -->
                 <Button Content="Charities"
-                        Foreground="White"
-                        Background="Transparent"
+                        Foreground="Black"
+                        Background="White"
                         BorderBrush="White"
                         FontSize="16"
                         Height="40"
@@ -48,8 +48,8 @@
 
                 <!-- Events Button -->
                 <Button Content="Events"
-                        Foreground="White"
-                        Background="Transparent"
+                        Foreground="Black"
+                        Background="White"
                         BorderBrush="White"
                         FontSize="16"
                         Height="40"
@@ -59,8 +59,8 @@
 
                 <!-- Log Out Button -->
                 <Button Content="Log Out"
-                        Foreground="White"
-                        Background="Transparent"
+                        Foreground="Black"
+                        Background="White"
                         BorderBrush="White"
                         FontSize="16"
                         Height="40"

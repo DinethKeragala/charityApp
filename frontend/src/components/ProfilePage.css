@@ -2,9 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px;
-  width: 80%;
-  margin: auto;
+  padding: 70px;
+  padding-bottom: 100px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  margin-bottom: 200px;
   background: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -17,7 +20,11 @@
 
 .profile-info h1 {
   font-size: 32px;
-  margin-bottom: 10px;
+  margin-bottom: 20px; /* Added margin to separate the name from the details */
+}
+
+.profile-info p {
+  margin: 8px 0; /* Added margin to space out the username and email */
 }
 
 .profile-photo {
@@ -38,8 +45,9 @@
 }
 
 .profile-img:hover {
-  border-color: #007bff; /* Change border color on hover */
+  border-color: #007bff;
 }
+
 .profile-photo input {
   margin-bottom: 10px;
 }

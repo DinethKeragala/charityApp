@@ -80,6 +80,16 @@
 .menu-icon {
   display: none;
 }
+.logout-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.logout-button {
+  white-space: nowrap;
+  min-width: auto;
+  width: auto;
+}
 @media screen and (max-width: 960px) {
   .NavbarItems {
     position: relative;

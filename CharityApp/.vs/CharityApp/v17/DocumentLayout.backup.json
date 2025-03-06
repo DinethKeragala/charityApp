@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|d:\\coding\\charityapp\\charityapp\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|solutionrelative:login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|d:\\coding\\charityapp\\charityapp\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|solutionrelative:login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|d:\\coding\\charityapp\\charityapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,14 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|d:\\coding\\charityapp\\charityapp\\deleteeventwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|solutionrelative:deleteeventwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|d:\\coding\\charityapp\\charityapp\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|solutionrelative:login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|d:\\coding\\charityapp\\charityapp\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|solutionrelative:login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{28DD11C8-F4A4-481B-9399-915BC2649CE9}|CharityApp.csproj|d:\\coding\\charityapp\\charityapp\\deletecharitywindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -82,7 +82,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "App.xaml",
               "DocumentMoniker": "D:\\coding\\charityApp\\CharityApp\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
@@ -94,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "DeleteEventWindow.xaml.cs",
               "DocumentMoniker": "D:\\coding\\charityApp\\CharityApp\\DeleteEventWindow.xaml.cs",
               "RelativeDocumentMoniker": "DeleteEventWindow.xaml.cs",
@@ -102,8 +102,7 @@
               "RelativeToolTip": "DeleteEventWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T19:18:50.738Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T19:18:50.738Z"
             },
             {
               "$type": "Document",
@@ -115,8 +114,7 @@
               "RelativeToolTip": "UpdateEventWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T19:17:24.471Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T19:17:24.471Z"
             },
             {
               "$type": "Document",
@@ -128,8 +126,7 @@
               "RelativeToolTip": "AddEventWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T19:10:47.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T19:10:47.655Z"
             },
             {
               "$type": "Document",
@@ -140,8 +137,7 @@
               "ToolTip": "D:\\coding\\charityApp\\CharityApp\\DeleteEventWindow.xaml",
               "RelativeToolTip": "DeleteEventWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-05T19:05:55.445Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T19:05:55.445Z"
             },
             {
               "$type": "Document",
@@ -152,8 +148,7 @@
               "ToolTip": "D:\\coding\\charityApp\\CharityApp\\UpdateEventWindow.xaml",
               "RelativeToolTip": "UpdateEventWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-05T19:05:37.787Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T19:05:37.787Z"
             },
             {
               "$type": "Document",
@@ -164,8 +159,7 @@
               "ToolTip": "D:\\coding\\charityApp\\CharityApp\\AddEventWindow.xaml",
               "RelativeToolTip": "AddEventWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-05T19:05:20.144Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T19:05:20.144Z"
             },
             {
               "$type": "Document",
@@ -177,8 +171,7 @@
               "RelativeToolTip": "DeleteCharityWindow.xaml.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAIwDMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T15:43:20.04Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T15:43:20.04Z"
             },
             {
               "$type": "Document",
@@ -190,12 +183,11 @@
               "RelativeToolTip": "UpdateCharityWindow.xaml.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T15:41:57.637Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T15:41:57.637Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "AddCharityWindow.xaml.cs",
               "DocumentMoniker": "D:\\coding\\charityApp\\CharityApp\\AddCharityWindow.xaml.cs",
               "RelativeDocumentMoniker": "AddCharityWindow.xaml.cs",
@@ -203,20 +195,18 @@
               "RelativeToolTip": "AddCharityWindow.xaml.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAYwCwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T15:38:14.202Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T15:38:14.202Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "DeleteCharityWindow.xaml",
               "DocumentMoniker": "D:\\coding\\charityApp\\CharityApp\\DeleteCharityWindow.xaml",
               "RelativeDocumentMoniker": "DeleteCharityWindow.xaml",
               "ToolTip": "D:\\coding\\charityApp\\CharityApp\\DeleteCharityWindow.xaml",
               "RelativeToolTip": "DeleteCharityWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-05T15:30:08.269Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T15:30:08.269Z"
             },
             {
               "$type": "Document",
@@ -227,8 +217,7 @@
               "ToolTip": "D:\\coding\\charityApp\\CharityApp\\UpdateCharityWindow.xaml",
               "RelativeToolTip": "UpdateCharityWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-05T15:29:53.787Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T15:29:53.787Z"
             },
             {
               "$type": "Document",
@@ -239,25 +228,24 @@
               "ToolTip": "D:\\coding\\charityApp\\CharityApp\\AddCharityWindow.xaml",
               "RelativeToolTip": "AddCharityWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-05T15:28:24.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T15:28:24.919Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "Login.xaml.cs",
               "DocumentMoniker": "D:\\coding\\charityApp\\CharityApp\\Login.xaml.cs",
               "RelativeDocumentMoniker": "Login.xaml.cs",
               "ToolTip": "D:\\coding\\charityApp\\CharityApp\\Login.xaml.cs",
               "RelativeToolTip": "Login.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-05T14:03:04.06Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Login.xaml",
               "DocumentMoniker": "D:\\coding\\charityApp\\CharityApp\\Login.xaml",
               "RelativeDocumentMoniker": "Login.xaml",
@@ -281,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\coding\\charityApp\\CharityApp\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
@@ -289,8 +277,7 @@
               "RelativeToolTip": "MainWindow.xaml.cs",
               "ViewState": "AgIAAGUBAAAAAAAAAAAuwHIBAABlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T13:35:52.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T13:35:52.374Z"
             }
           ]
         }
