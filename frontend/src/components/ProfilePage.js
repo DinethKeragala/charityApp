@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./ProfilePage.css";
-import userPic from "./user.png"; // Import the default profile picture
+import userPic from "./user.png"; 
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -8,14 +8,14 @@ const Profile = () => {
   const [preview, setPreview] = useState("");
   const fileInputRef = useRef(null);
 
-  // ✅ Use the correct key from localStorage
+
   const userId = localStorage.getItem("user_id");
 
   useEffect(() => {
     const fetchUserData = async () => {
       if (!userId) {
         console.error("No user ID found. Redirecting to login...");
-        window.location.href = "/login";  // Redirect to login if not logged in
+        window.location.href = "/login";  
         return;
       }
 
@@ -87,7 +87,7 @@ const Profile = () => {
           alt="Profile" 
           className="profile-img"
           onClick={() => fileInputRef.current.click()}
-          onError={(e) => e.target.src = userPic} // Fallback to default image if the profile photo fails to load
+          onError={(e) => e.target.src = userPic} 
         />
         <input 
           type="file" 
@@ -106,7 +106,7 @@ const Profile = () => {
       </div>
       <div className="profile-stats">
           <h2>Profile Statistics</h2>
-          <p><strong>Total Donations:</strong> {user.total_donations || 0}</p>
+          <p><strong>Total Donations:</strong> ${user.total_donations || 0}</p>
           <p><strong>Total Events Participated:</strong> {user.total_events_participated || 0}</p>
         </div>
     </div>

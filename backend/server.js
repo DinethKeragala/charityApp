@@ -197,8 +197,6 @@ app.post('/api/events', (req, res) => {
     });
 });
 
-// server.js
-
 app.post('/api/volunteers', (req, res) => {
     const { fullName, email, phone, address, eventId } = req.body;
 
@@ -223,21 +221,50 @@ app.post('/api/volunteers', (req, res) => {
 app.get('/api/user/:id', async (req, res) => {
     const { id } = req.params;
     
-    const sql = "SELECT full_name, username, email, profile_photo FROM users WHERE id = ?";
-    db.query(sql, [id], (err, results) => {
+    // Get the user's basic info
+    const userSql = "SELECT full_name, username, email, profile_photo FROM users WHERE id = ?";
+    
+    db.query(userSql, [id], (err, userResults) => {
         if (err) {
             console.error("Database error:", err);
             return res.status(500).json({ error: "Database error" });
         }
-        if (results.length === 0) {
+        if (userResults.length === 0) {
             return res.status(404).json({ error: "User not found" });
         }
-
-        console.log("User data fetched from database:", results[0]);
-        res.json(results[0]);
+        
+        const user = userResults[0];
+        
+        // Get total donation amount (sum of amounts) instead of count
+        const donationSql = "SELECT COALESCE(SUM(amount), 0) as total_donations FROM donations WHERE user_id = ?";
+        db.query(donationSql, [id], (donationErr, donationResults) => {
+            if (donationErr) {
+                console.error("Database error:", donationErr);
+                return res.status(500).json({ error: "Database error" });
+            }
+            
+            // Get volunteer count based on full_name and email
+            const volunteerSql = "SELECT COUNT(*) as total_events_participated FROM volunteers WHERE full_name = ? AND email = ?";
+            
+            db.query(volunteerSql, [user.full_name, user.email], (volunteerErr, volunteerResults) => {
+                if (volunteerErr) {
+                    console.error("Database error:", volunteerErr);
+                    return res.status(500).json({ error: "Database error" });
+                }
+                
+                // Combine all the data
+                const userData = {
+                    ...user,
+                    total_donations: donationResults[0].total_donations,
+                    total_events_participated: volunteerResults[0].total_events_participated
+                };
+                
+                console.log("User data fetched from database:", userData);
+                res.json(userData);
+            });
+        });
     });
 });
-
 
 const multer = require("multer");
 const path = require("path");
@@ -269,6 +296,8 @@ app.post("/api/upload-profile-photo", upload.single("profilePhoto"), (req, res) 
         res.json({ message: "Profile photo updated successfully!", filePath });
     });
 });
+
+
 
 
 app.post('/api/logout', (req, res) => {
