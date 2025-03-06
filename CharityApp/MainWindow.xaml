@@ -68,25 +68,25 @@
                         Cursor="Hand"
                         VerticalAlignment="Bottom"
                         Click="LogOutButton_Click"/>
-                <!-- Add Click Event Handler -->
+                
             </StackPanel>
         </Border>
 
         <!-- Main Content Area -->
         <Grid Margin="220,10,10,10">
-            <!-- Define Rows -->
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <!-- Row for Dashboard Statistics -->
+                
                 <RowDefinition Height="*"/>
-                <!-- Row for Users, Charities, and Events -->
+               
             </Grid.RowDefinitions>
 
             <!-- Dashboard Statistics -->
             <StackPanel x:Name="DashboardStatisticsPanel" Orientation="Vertical" HorizontalAlignment="Center" Grid.Row="0">
-                <!-- First Row: Users and Events -->
+              
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <!-- Number of Users -->
+                    
                     <Border Background="LightBlue" Padding="20" Margin="10" CornerRadius="10" Width="200" Height="120">
                         <StackPanel>
                             <TextBlock Text="Users" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
@@ -94,7 +94,7 @@
                         </StackPanel>
                     </Border>
 
-                    <!-- Number of Events -->
+                    
                     <Border Background="LightGoldenrodYellow" Padding="20" Margin="10" CornerRadius="10" Width="200" Height="120">
                         <StackPanel>
                             <TextBlock Text="Events" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
@@ -103,9 +103,9 @@
                     </Border>
                 </StackPanel>
 
-                <!-- Second Row: Total Donations and Charities -->
+                
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <!-- Total Donations -->
+                   
                     <Border Background="LightGreen" Padding="20" Margin="10" CornerRadius="10" Width="200" Height="120">
                         <StackPanel>
                             <TextBlock Text="Total Donations" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
@@ -113,7 +113,7 @@
                         </StackPanel>
                     </Border>
 
-                    <!-- Number of Charities -->
+                    
                     <Border Background="LightCoral" Padding="20" Margin="10" CornerRadius="10" Width="200" Height="120">
                         <StackPanel>
                             <TextBlock Text="Charities" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>

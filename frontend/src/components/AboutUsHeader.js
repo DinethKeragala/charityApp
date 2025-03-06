@@ -9,7 +9,6 @@ function AboutUsHeader() {
         <div className="header-content">
           <h1>About Us</h1>
           
-          {/* Added header image */}
           <div className="header-image-container">
             <img 
               src="https://img.industryweek.com/files/base/ebm/industryweek/image/2020/11/teamwork.5fac15b5571ee.png?auto=format,compress&fit=fill&fill=blur&w=1200&h=630" 

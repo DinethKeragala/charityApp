@@ -46,7 +46,7 @@
     background-color: #0056b3;
 }
 
-/* Top donator styles */
+
 .top-donator-banner {
     background: linear-gradient(45deg, #FFD700, #FFA500, #FF6347, #FF4500);
     background-size: 400% 400%;
@@ -58,7 +58,7 @@
     margin: 20px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: gradient-shift 3s ease infinite, pulse 2s infinite;
-    display: block; /* Ensure it's visible */
+    display: block; 
 }
 
 .user-row {

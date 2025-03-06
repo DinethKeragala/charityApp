@@ -7,20 +7,20 @@ namespace CharityApp
     public partial class DeleteCharityWindow : Window
     {
         private string connectionString = "server=localhost;database=donation_db;user=root;password=1234;";
-        private int charityId; // Store the ID of the charity being deleted
+        private int charityId; 
 
         public DeleteCharityWindow(Charity selectedCharity)
         {
             InitializeComponent();
 
-            // Store the selected charity's ID for deletion
+            
             charityId = selectedCharity.Id;
 
-            // Display the charity name in the confirmation message
+            
             CharityNameText.Text = selectedCharity.Name;
         }
 
-        // Delete Charity from MySQL
+       
         private void DeleteCharity_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -35,7 +35,7 @@ namespace CharityApp
                 }
 
                 MessageBox.Show("Charity deleted successfully!");
-                this.Close(); // Close the delete confirmation window
+                this.Close(); 
             }
             catch (Exception ex)
             {
@@ -45,7 +45,7 @@ namespace CharityApp
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            this.Close(); // Close window without deleting
+            this.Close(); 
         }
     }
 }

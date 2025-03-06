@@ -1,48 +1,47 @@
-/* VolunteerForm.css */
 .volunteer-form {
     text-align: center;
     padding: 20px;
     font-family: Arial, sans-serif;
-    width: 90%; /* Adjust form width to make it more compact */
-    max-width: 500px; /* Limit the maximum width */
-    margin: 0 auto; /* Center the form */
+    width: 90%; 
+    max-width: 500px; 
+    margin: 0 auto; 
 }
 
 .volunteer-form h1 {
     font-size: 2rem;
     color: #333;
-    margin-bottom: 15px; /* Reduce the spacing */
+    margin-bottom: 15px; 
 }
 
 .volunteer-form .form-group {
-    margin-bottom: 15px; /* Reduce the spacing between inputs */
+    margin-bottom: 15px; 
     text-align: left;
     width: 100%;
 }
 
 .volunteer-form label {
     display: block;
-    font-size: 0.9rem; /* Smaller label font */
+    font-size: 0.9rem;
     margin-bottom: 5px;
     color: #666;
 }
 
 .volunteer-form input {
     width: 100%;
-    padding: 8px; /* Reduced padding */
+    padding: 8px; 
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 14px; /* Smaller font size for inputs */
+    font-size: 14px; 
 }
 
 .volunteer-form button {
-    padding: 8px 15px; /* Smaller padding */
+    padding: 8px 15px; 
     border: none;
     border-radius: 5px;
     background-color: #28a745;
     color: white;
     cursor: pointer;
-    font-size: 14px; /* Smaller font size for button */
+    font-size: 14px; 
 }
 
 .volunteer-form button:hover {

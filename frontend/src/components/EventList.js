@@ -1,15 +1,13 @@
-// src/components/EventList.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Carditem from './Carditem';  // Import Carditem
+import Carditem from './Carditem';  
 import './EventList.css';
 
 function EventList() {
     const [events, setEvents] = useState([]);
-    const navigate = useNavigate(); // Initialize useNavigate hook
+    const navigate = useNavigate(); 
 
     useEffect(() => {
-        // Fetch events from backend
         fetch('http://localhost:5000/api/events')
             .then(response => response.json())
             .then(data => setEvents(data))
@@ -17,7 +15,7 @@ function EventList() {
     }, []);
 
     const handleCardClick = (id) => {
-        navigate(`/volunteer/${id}`); // Navigate to the volunteer form with event ID
+        navigate(`/volunteer/${id}`); 
     };
 
     return (
@@ -27,11 +25,11 @@ function EventList() {
                 {events.map(event => (
                     <Carditem
                         key={event.id}
-                        src={event.image}  // Assuming events have an image field
+                        src={event.image}  
                         text={event.description}
                         label={event.name}
-                        path={`/volunteer/${event.id}`}  // Link to the volunteer form
-                        onClick={() => handleCardClick(event.id)}  // Handle the card click
+                        path={`/volunteer/${event.id}`}  
+                        onClick={() => handleCardClick(event.id)}  
                     />
                 ))}
             </div>

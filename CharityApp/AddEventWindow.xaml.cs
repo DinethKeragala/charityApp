@@ -10,12 +10,12 @@ namespace CharityApp
 
         public AddEventWindow()
         {
-            InitializeComponent(); // This line is crucial
+            InitializeComponent(); 
         }
 
         private void AddEvent_Click(object sender, RoutedEventArgs e)
         {
-            // Validate input fields
+            
             if (string.IsNullOrWhiteSpace(NameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(DescriptionTextBox.Text) ||
                 string.IsNullOrWhiteSpace(ImageTextBox.Text))
@@ -38,7 +38,7 @@ namespace CharityApp
                 }
 
                 MessageBox.Show("Event added successfully!");
-                this.Close(); // Close the window after adding event
+                this.Close(); 
             }
             catch (Exception ex)
             {

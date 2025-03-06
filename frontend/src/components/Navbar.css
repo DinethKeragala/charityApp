@@ -33,7 +33,7 @@
 }
 .nav-menu {
   display: flex;
-  gap: 30px; /* Adjust spacing between menu items */
+  gap: 30px; 
   align-items: center;
   list-style: none;
   margin-left: auto; 
@@ -57,7 +57,7 @@
 }
 
 .nav-links-login {
-  border: 1px solid #fff; /* Adds a border for the login button */
+  border: 1px solid #fff; 
   padding: 8px 16px;
   color: #fff;
   text-decoration: none;
@@ -95,14 +95,14 @@
     position: relative;
   }
   .nav-menu {
-    flex-direction: column; /* Stack items in a column for smaller screens */
-    align-items: center; /* Center the items */
-    width: 100%; /* Full width for smaller screens */
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
     height: auto;
-    background: #242222; /* Add a background for mobile view */
+    background: #242222; 
     position: absolute;
     top: 80px;
-    left: -100%; /* Initially hidden */
+    left: -100%; 
     transition: all 0.5s ease;
     z-index: 1;
   }

@@ -14,7 +14,7 @@ namespace CharityApp
 
         private void AddCharity_Click(object sender, RoutedEventArgs e)
         {
-            // Validate input fields
+            
             if (string.IsNullOrWhiteSpace(NameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(DescriptionTextBox.Text) ||
                 string.IsNullOrWhiteSpace(ImageTextBox.Text))
@@ -37,7 +37,7 @@ namespace CharityApp
                 }
 
                 MessageBox.Show("Charity added successfully!");
-                this.Close(); // Close the window after adding charity
+                this.Close(); 
             }
             catch (Exception ex)
             {

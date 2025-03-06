@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './RegistrationForm.css';
 import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import image2 from './login1.jpg'; // Ensure this image is placed in the same directory
+import image2 from './login1.jpg'; 
 
 function RegisterForm() {
     const [formData, setFormData] = useState({
@@ -28,7 +28,7 @@ function RegisterForm() {
 
             const data = await response.json();
             alert(data.message);
-            navigate('/home');
+            navigate('/login');
         } catch (error) {
             alert('Registration failed. Please try again.');
         }

@@ -18,7 +18,7 @@
 
             <StackPanel VerticalAlignment="Center">
 
-                <!-- Title -->
+                
                 <TextBlock Text="Welcome Back!"
                            FontSize="24"
                            FontWeight="Bold"
@@ -26,7 +26,7 @@
                            HorizontalAlignment="Center"
                            Margin="0,0,0,20"/>
 
-                <!-- Email -->
+                
                 <TextBlock Text="Username" Foreground="Black" FontWeight="SemiBold"/>
                 <TextBox x:Name="UsernameTextBox"
                          Height="40"
@@ -52,7 +52,7 @@
                     </TextBox.Style>
                 </TextBox>
 
-                <!-- Password -->
+                
                 <TextBlock Text="Password" Foreground="Black" FontWeight="SemiBold"/>
                 <PasswordBox x:Name="PasswordBox"
                              Height="40"
@@ -79,7 +79,7 @@
                     </PasswordBox.Style>
                 </PasswordBox>
 
-                <!-- Login Button -->
+               
                 <Button Content="LOGIN"
                         Foreground="White"
                         FontWeight="Bold"

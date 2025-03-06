@@ -1,4 +1,4 @@
-// src/components/VolunteerForm.js
+
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './VolunteerForm.css';
@@ -9,7 +9,7 @@ function VolunteerForm() {
         fullName: '',
         email: '',
         phone: '',
-        address: ''  // New address field
+        address: ''  
     });
     const navigate = useNavigate();
 
@@ -17,7 +17,6 @@ function VolunteerForm() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-// src/components/VolunteerForm.js
 
 const handleSubmit = (e) => {
     e.preventDefault();

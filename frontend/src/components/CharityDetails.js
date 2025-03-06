@@ -3,19 +3,17 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './CharityDetails.css';
 
 function CharityDetails() {
-    const { id } = useParams(); // Get the charity ID from the URL
+    const { id } = useParams(); 
     const [leaderboard, setLeaderboard] = useState([]);
     const [charity, setCharity] = useState({});
     const [currentUserData, setCurrentUserData] = useState(null);
     const [isTopDonator, setIsTopDonator] = useState(false);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        // Get current user ID - first try from localStorage
+    useEffect(() => {      
         const userId = localStorage.getItem('user_id');
         
-        if (userId) {
-            // Fetch current user data from server
+        if (userId) { 
             fetch(`http://localhost:5000/api/user/${userId}`)
                 .then(response => response.json())
                 .then(userData => {
@@ -25,7 +23,7 @@ function CharityDetails() {
                 .catch(error => console.error('Error fetching user data:', error));
         }
 
-        // Fetch charity and leaderboard data
+        
         fetch(`http://localhost:5000/api/charities/${id}`)
             .then(response => response.json())
             .then(data => {
@@ -36,7 +34,7 @@ function CharityDetails() {
             .catch(error => console.error('Error fetching charity data:', error));
     }, [id]);
 
-    // Check if user is top donator whenever leaderboard or user data changes
+    
     useEffect(() => {
         if (currentUserData && leaderboard.length > 0) {
             const topDonator = leaderboard[0];

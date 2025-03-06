@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// ✅ MySQL Database Connection
+// MySQL Database Connection
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -19,22 +19,21 @@ const db = mysql.createConnection({
 db.connect((err) => {
     if (err) {
         console.error('Database connection error:', err);
-        process.exit(1); // Stops the server if DB connection fails
+        process.exit(1); 
     }
     console.log('✅ Connected to the MySQL Database');
 });
 
-// ✅ ROOT Route
+// ROOT Route
 app.get('/', (req, res) => {
     res.send('Welcome to the Donation Management System API!');
 });
 
-// ✅ Register Route
-
+// Register Route
 
 app.post('/register', async (req, res) => {
     const { fullName, username, email, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10); // ✅ Hash password
+    const hashedPassword = await bcrypt.hash(password, 10); 
 
     const sql = `INSERT INTO users (full_name, username, email, password) VALUES (?, ?, ?, ?)`;
     db.query(sql, [fullName, username, email, hashedPassword], (err, result) => {
@@ -49,7 +48,7 @@ app.post('/register', async (req, res) => {
 const bcrypt = require('bcrypt');
 
 app.post('/login', (req, res) => {
-    const { username, password } = req.body;  // ✅ Using username instead of email
+    const { username, password } = req.body;  
 
     const sql = `SELECT * FROM users WHERE username = ?`;
     db.query(sql, [username], async (err, results) => {
@@ -65,11 +64,11 @@ app.post('/login', (req, res) => {
 
         const user = results[0];
 
-        // Log to verify correct password is being compared
+        
         console.log('Stored Password:', user.password);
         console.log('Entered Password:', password);
 
-        const isPasswordValid = await bcrypt.compare(password, user.password);  // ✅ Compare hashed password
+        const isPasswordValid = await bcrypt.compare(password, user.password);  
 
         if (!isPasswordValid) {
             console.log('Invalid password for username:', username);
@@ -82,7 +81,7 @@ app.post('/login', (req, res) => {
 });
 
 
-// ✅ Fetch all charities
+// Fetch all charities
 app.get('/api/charities', (req, res) => {
     db.query('SELECT * FROM charities', (err, results) => {
         if (err) {
@@ -93,7 +92,7 @@ app.get('/api/charities', (req, res) => {
     });
 });
 
-// ✅ Fetch Charity Details and Leaderboard
+// Fetch Charity Details and Leaderboard
 app.get('/api/charities/:id', (req, res) => {
     const { id } = req.params;
 
@@ -123,7 +122,7 @@ app.get('/api/charities/:id', (req, res) => {
                 return res.status(500).json({ error: 'Database error' });
             }
 
-            console.log('Leaderboard results:', leaderboardResults); // Debugging tip
+            console.log('Leaderboard results:', leaderboardResults); 
             res.json({
                 charity: charityResults[0],
                 leaderboard: leaderboardResults,
@@ -132,11 +131,11 @@ app.get('/api/charities/:id', (req, res) => {
     });
 });
 
-// ✅ Record a Donation
+// Record a Donation
 app.post('/api/donations', (req, res) => {
     const { user_id, charity_id, amount } = req.body;
 
-    console.log('Received donation data:', { user_id, charity_id, amount }); // Debugging tip
+    console.log('Received donation data:', { user_id, charity_id, amount }); 
 
     if (!user_id || !charity_id || !amount) {
         console.error('Invalid input:', { user_id, charity_id, amount });
@@ -150,7 +149,7 @@ app.post('/api/donations', (req, res) => {
             console.error('Database error:', err);
             return res.status(500).json({ error: 'Database error. Please try again.' });
         }
-        console.log('Donation inserted:', result); // Debugging tip
+        console.log('Donation inserted:', result); 
         res.status(201).json({ message: 'Donation recorded successfully!' });
     });
 });
@@ -185,7 +184,6 @@ app.get('/api/events/:id', (req, res) => {
 app.post('/api/events', (req, res) => {
     const { name, description, date, image } = req.body;
 
-    // Convert the date to the MySQL compatible format (YYYY-MM-DD HH:MM:SS)
     const formattedDate = new Date(date).toISOString().slice(0, 19).replace('T', ' ');
 
     const query = 'INSERT INTO events (name, description, date, image) VALUES (?, ?, ?, ?)';
@@ -247,7 +245,7 @@ const path = require("path");
 const storage = multer.diskStorage({
     destination: "./uploads/",
     filename: (req, file, cb) => {
-        cb(null, req.body.userId + path.extname(file.originalname)); // Save file as userId.extension
+        cb(null, req.body.userId + path.extname(file.originalname)); 
     },
 });
 
@@ -272,16 +270,14 @@ app.post("/api/upload-profile-photo", upload.single("profilePhoto"), (req, res) 
     });
 });
 
-// Add to your server.js
+
 app.post('/api/logout', (req, res) => {
-    // If you're using session-based auth, you might want to invalidate the session
-    // req.session.destroy();
-    
+
     res.status(200).json({ message: 'Logged out successfully' });
 });
 
 
-// ✅ Server Listening
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`✅ Server running at http://localhost:${PORT}`);

@@ -8,7 +8,6 @@ function CharitySelection() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Fetch charities from the backend
         fetch('http://localhost:5000/api/charities')
             .then(response => response.json())
             .then(data => setCharities(data))
@@ -16,7 +15,7 @@ function CharitySelection() {
     }, []);
 
     const handleCardClick = (id) => {
-        navigate(`/charities/${id}`); // Redirect to Charity Details page
+        navigate(`/charities/${id}`); 
     };
 
     return (
@@ -29,8 +28,8 @@ function CharitySelection() {
                         src={charity.image}
                         text={charity.description}
                         label={charity.name}
-                        path={`/charities/${charity.id}`} // Add proper path
-                        onClick={() => handleCardClick(charity.id)} // Navigate on click
+                        path={`/charities/${charity.id}`}
+                        onClick={() => handleCardClick(charity.id)} 
                     />
                 ))}
             </div>

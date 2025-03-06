@@ -8,16 +8,16 @@ namespace CharityApp
     public partial class UpdateEventWindow : Window
     {
         private string connectionString = "server=localhost;database=donation_db;user=root;password=1234;";
-        private int eventId; // Store the ID of the event being updated
+        private int eventId; 
 
         public UpdateEventWindow(Event selectedEvent)
         {
-            InitializeComponent(); // Ensure this line is present
+            InitializeComponent();
 
-            // Store the selected event's ID for updating
+            
             eventId = selectedEvent.Id;
 
-            // Pre-fill fields with existing event data
+            
             NameTextBox.Text = selectedEvent.Name;
             DescriptionTextBox.Text = selectedEvent.Description;
             ImagePathTextBox.Text = selectedEvent.ImagePath;
@@ -25,7 +25,7 @@ namespace CharityApp
 
         private void UpdateEvent_Click(object sender, RoutedEventArgs e)
         {
-            // Validate input fields
+            
             if (string.IsNullOrWhiteSpace(NameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(DescriptionTextBox.Text) ||
                 string.IsNullOrWhiteSpace(ImagePathTextBox.Text))
@@ -49,7 +49,7 @@ namespace CharityApp
                 }
 
                 MessageBox.Show("Event updated successfully!");
-                this.Close(); // Close the update form after updating
+                this.Close(); 
             }
             catch (Exception ex)
             {

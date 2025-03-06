@@ -10,7 +10,7 @@ function DonationForm() {
     const handleDonation = (e) => {
         e.preventDefault();
     
-        // Retrieve `user_id` from localStorage
+        
         const user_id = localStorage.getItem('user_id'); 
         console.log('User ID:', user_id);
     
@@ -24,15 +24,15 @@ function DonationForm() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                user_id: parseInt(user_id, 10), // Convert `user_id` to a number
-                charity_id: id, // Charity ID
-                amount: parseFloat(amount), // Donation amount as a float
+                user_id: parseInt(user_id, 10), 
+                charity_id: id,
+                amount: parseFloat(amount), 
             }),
         })
             .then((response) => {
                 if (response.ok) {
                     alert('Donation successful!');
-                    navigate(`/charities/${id}`); // Redirect back to charity details
+                    navigate(`/charities/${id}`); 
                 } else {
                     alert('Error making donation. Please try again.');
                 }

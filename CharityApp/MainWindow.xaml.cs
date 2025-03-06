@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Media.Imaging; // For BitmapImage
+using System.Windows.Media.Imaging; 
 using MySql.Data.MySqlClient;
 
 namespace CharityApp
@@ -9,30 +9,30 @@ namespace CharityApp
     public partial class MainWindow : Window
     {
         private string connectionString = "server=localhost;database=donation_db;user=root;password=1234;";
-        private int selectedCharityId = -1; // Track the selected charity ID
-        private int selectedEventId = -1;   // Track the selected event ID
+        private int selectedCharityId = -1; 
+        private int selectedEventId = -1;  
 
         public MainWindow()
         {
             InitializeComponent();
-            SetUIVisibility(false, false, false, false, false, true); // Hide all UI elements except dashboard on startup
-            LoadDashboardStatistics(); // Load dashboard statistics when the window loads
+            SetUIVisibility(false, false, false, false, false, true); 
+            LoadDashboardStatistics(); 
         }
 
         // Event Handler for HealTheWorld Button
         private void HealTheWorldButton_Click(object sender, RoutedEventArgs e)
         {
-            SetUIVisibility(false, false, false, false, false, true); // Show dashboard, hide others
-            LoadDashboardStatistics(); // Reload dashboard statistics
+            SetUIVisibility(false, false, false, false, false, true); 
+            LoadDashboardStatistics(); 
         }
 
         // Event Handler for Log Out Button
         private void LogOutButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown(); // Exit the application
+            Application.Current.Shutdown(); 
         }
 
-        // Define User Model
+        // Define User 
         public class User
         {
             public string FullName { get; set; }
@@ -40,24 +40,24 @@ namespace CharityApp
             public string Email { get; set; }
         }
 
-        // Define Charity Model
+        // Define Charity 
         public class Charity
         {
             public int Id { get; set; }
             public string Name { get; set; }
             public string Description { get; set; }
-            public string ImagePath { get; set; } // Store the image path as a string
-            public BitmapImage Image { get; set; } // Store the image as BitmapImage for display
+            public string ImagePath { get; set; } 
+            public BitmapImage Image { get; set; } 
         }
 
-        // Define Event Model
+        // Define Event 
         public class Event
         {
             public int Id { get; set; }
             public string Name { get; set; }
             public string Description { get; set; }
-            public string ImagePath { get; set; } // Store the image path as a string
-            public BitmapImage Image { get; set; } // Store the image as BitmapImage for display
+            public string ImagePath { get; set; } 
+            public BitmapImage Image { get; set; } 
         }
 
         // Load Dashboard Statistics
@@ -104,7 +104,7 @@ namespace CharityApp
         // Fetch and Display Users
         private void UsersButton_Click(object sender, RoutedEventArgs e)
         {
-            SetUIVisibility(true, false, false, false, false, false); // Show users, hide others, hide dashboard
+            SetUIVisibility(true, false, false, false, false, false); 
             LoadUsers();
         }
 
@@ -144,7 +144,7 @@ namespace CharityApp
         // Fetch and Display Charities
         private void CharitiesButton_Click(object sender, RoutedEventArgs e)
         {
-            SetUIVisibility(false, true, true, false, false, false); // Show charities and CRUD buttons, hide others, hide dashboard
+            SetUIVisibility(false, true, true, false, false, false);
             LoadCharities();
         }
 
@@ -168,10 +168,10 @@ namespace CharityApp
                             Id = Convert.ToInt32(reader["id"]),
                             Name = reader["name"].ToString(),
                             Description = reader["description"].ToString(),
-                            ImagePath = reader["image"].ToString() // Store the image path
+                            ImagePath = reader["image"].ToString() 
                         };
 
-                        // Load the image as BitmapImage
+                        
                         if (!string.IsNullOrEmpty(charity.ImagePath))
                         {
                             try
@@ -200,7 +200,7 @@ namespace CharityApp
         // Fetch and Display Events
         private void EventsButton_Click(object sender, RoutedEventArgs e)
         {
-            SetUIVisibility(false, false, false, true, true, false); // Show events and CRUD buttons, hide others, hide dashboard
+            SetUIVisibility(false, false, false, true, true, false); 
             LoadEvents();
         }
 
@@ -224,10 +224,10 @@ namespace CharityApp
                             Id = Convert.ToInt32(reader["id"]),
                             Name = reader["name"].ToString(),
                             Description = reader["description"].ToString(),
-                            ImagePath = reader["image"].ToString() // Store the image path
+                            ImagePath = reader["image"].ToString() 
                         };
 
-                        // Load the image as BitmapImage
+                        
                         if (!string.IsNullOrEmpty(eventItem.ImagePath))
                         {
                             try
@@ -258,7 +258,7 @@ namespace CharityApp
         {
             AddCharityWindow addWindow = new AddCharityWindow();
             addWindow.ShowDialog();
-            LoadCharities(); // Refresh the charities list
+            LoadCharities(); 
         }
 
         // Open Update Charity Form
@@ -269,7 +269,7 @@ namespace CharityApp
                 UpdateCharityWindow updateWindow = new UpdateCharityWindow(selectedCharity);
                 if (updateWindow.ShowDialog() == true)
                 {
-                    LoadCharities(); // Refresh data after closing form
+                    LoadCharities(); 
                 }
             }
             else
@@ -286,7 +286,7 @@ namespace CharityApp
                 DeleteCharityWindow deleteWindow = new DeleteCharityWindow(selectedCharity);
                 if (deleteWindow.ShowDialog() == true)
                 {
-                    LoadCharities(); // Refresh data after closing form
+                    LoadCharities(); 
                 }
             }
             else
@@ -300,7 +300,7 @@ namespace CharityApp
         {
             AddEventWindow addWindow = new AddEventWindow();
             addWindow.ShowDialog();
-            LoadEvents(); // Refresh the events list
+            LoadEvents(); 
         }
 
         // Open Update Event Form
@@ -311,7 +311,7 @@ namespace CharityApp
                 UpdateEventWindow updateWindow = new UpdateEventWindow(selectedEvent);
                 if (updateWindow.ShowDialog() == true)
                 {
-                    LoadEvents(); // Refresh data after closing form
+                    LoadEvents(); 
                 }
             }
             else
@@ -328,7 +328,7 @@ namespace CharityApp
                 DeleteEventWindow deleteWindow = new DeleteEventWindow(selectedEvent);
                 if (deleteWindow.ShowDialog() == true)
                 {
-                    LoadEvents(); // Refresh data after closing form
+                    LoadEvents(); 
                 }
             }
             else
@@ -346,7 +346,7 @@ namespace CharityApp
             }
             else
             {
-                selectedCharityId = -1; // Reset to default value
+                selectedCharityId = -1; 
             }
         }
 
@@ -359,11 +359,11 @@ namespace CharityApp
             }
             else
             {
-                selectedEventId = -1; // Reset to default value
+                selectedEventId = -1; 
             }
         }
 
-        // Helper method to manage UI visibility
+        
         private void SetUIVisibility(bool showUsers, bool showCharities, bool showCrudButtons, bool showEvents, bool showEventsCrudButtons, bool showDashboard = false)
         {
             UsersDataGrid.Visibility = showUsers ? Visibility.Visible : Visibility.Collapsed;
@@ -372,7 +372,7 @@ namespace CharityApp
             EventsListView.Visibility = showEvents ? Visibility.Visible : Visibility.Collapsed;
             EventsCrudButtonPanel.Visibility = showEventsCrudButtons ? Visibility.Visible : Visibility.Collapsed;
 
-            // Control visibility of the dashboard statistics
+           
             DashboardStatisticsPanel.Visibility = showDashboard ? Visibility.Visible : Visibility.Collapsed;
         }
     }
